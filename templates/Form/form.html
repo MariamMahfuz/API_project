@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body_block %}
+<div class="row">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-6">
+    <form action="" method="POST">
+      {% csrf_token %}
+        <h1 class="text-center ">Form</h1>  
+        <div class="form-group">
+      
+            <input name="name" type="text" class="form-control" placeholder="Name">
+            </div>
+            <div class="form-group">
+            <input type="text" name="address" class=" form-control" placeholder="Address">
+        </div>
+        <div class="form-group">
+            <input type="text" name="message" class=" form-control" placeholder="Your message">
+        </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    <!-- =================================================Form ends here============================= -->
+    <div style="background-color:black;color:white">
+        <h2 class="text-center">Data Showing</h2>
+      <table class="table table-dark">
+        <thead>
+          <tr>
+            <th scope="col">SL No</th>
+            <th scope="col">Name</th>
+            <th scope="col">Address</th>
+            <th scope="col">Message </th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for x in messages %}
+          <tr>
+            <th scope="row">{{ x.id }}</th>
+            <td>{{ x.name }}</td>
+            <td>{{ x.address }}</td>
+            <td>{{ x.message }}</td>
+            <td><a href="{% url 'edit' primaryk=x.id %}"  type="submit" class="btn btn-success">  Edit</a></td>
+           
+            <td>
+              
+              <a href="{% url 'delete' pk=x.id %}" id="delete_id" type="submit" class="btn btn-danger">
+              Delete </a>
+            </td>  
+        
+          </tr> 
+          {% endfor %}         
+        </tbody>
+      </table>
+    </div>
+    
+    </div>
+      <div class="col-lg-3"></div> 
+</div>
+{% endblock %}

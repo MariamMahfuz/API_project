@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body_block %}
+<div class="row  mt-5 mt-5">
+        {% for message in messages %}
+            <div class="alert alert-info">
+                {{ message }}
+            </div>
+        {% endfor %}
+    <div class="col-lg-3"></div>
+    <div class="col-lg-6 bg-dark text-white p-5">
+        <form action="" method="POST">
+            {% csrf_token %}  
+            <center>    
+            <p>Are you sure to delete <b> {{ message_info.name }} </b>?</p>
+
+            <a href="{% url 'home' %}" class="btn btn-primary">Cancel</a>
+            <input type="submit" class="btn btn-danger" name="Confirm">
+            </center>
+        </form>
+    </div>
+    <div class="col-lg-3"></div>
+</div>
+{% endblock %}
