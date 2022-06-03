@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body_block %} 
+        <div class="profile ">
+            <img src='/media/{{ writer_details.writer_photo }}' style=" height: 40%; width:40%" alt="Avatar" class="image" style="width:100%">
+            <div class="middle"> 
+              <div class="text"> 
+                  {{ writer_details.writer_name }}
+               </div> 
+             </div>
+        </div>
+
+
+        <div class="details">
+            <div>Name: {{ writer_details.writer_name }}</div> 
+            <div>Book: {{ writer_details.book_list }}</div>
+            <a class=" btn edit-task btn-info mt-3" href="{% url 'edit_profile' primarykey=writer_details.id %}"> Edit Profile</a>
+     
+        </div>
+<!-- <div class="actions-btn"> -->
+<!-- </div> -->
+</div>
+    
+{% endblock %}

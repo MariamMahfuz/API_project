@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body_block %} 
+
+{% for message in messages %}
+            <div class="alert alert-info" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+<h4 style="margin-bottom: 25px">
+    Are you sure to delete this task "{{ writer_details.writer_name }}" ?
+  </h4>
+  <form action="" method="POST">
+    {% csrf_token %} 
+    <a
+      class="btn edit-task"
+      style="text-decoration: none"
+      href="{% url 'writer_list' %}"
+      >Cancel
+    </a>
+    <button class="btn task-view" type="submit">
+      Delete
+    </button>
+  </form>
+  {% endblock %}

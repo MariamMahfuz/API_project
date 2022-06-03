@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body_block %} 
+<div>
+    <form method="POST">
+      {% csrf_token %}
+      <h3 style="margin-bottom: 1.3rem">Edit Writer Profile</h3>
+      {% for edit_field in edit_form %}
+      <div style="margin-bottom: 1rem">
+        <label for="">{{ edit_field.label_tag }}</label>
+        {{ edit_field }}
+      </div>
+      {% endfor %}
+      <button class="btn btn-info" type="submit">Submit</button>
+  </form>
+  <button style="margin-top: 1rem" class="btn task-view">
+    <a style="color: #fff; text-decoration: none" href="{% url 'writer_list' %}"
+      >Back
+      </a>
+  </button>
+</div>
+{% endblock %}

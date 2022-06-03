@@ -2,13 +2,13 @@
 {% load static %}
 {% block body_block %}
 <div class="row  mt-5 mt-5">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-6 bg-dark text-white p-5">
         {% for message in messages %}
-            <div class="alert alert-info">
+            <div class="alert alert-info" role="alert">
                 {{ message }}
             </div>
         {% endfor %}
-    <div class="col-lg-3"></div>
-    <div class="col-lg-6 bg-dark text-white p-5">
         <form action="" method="POST">
             {% csrf_token %}  
             <center>    

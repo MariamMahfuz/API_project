@@ -14,13 +14,6 @@ def home(request):
             message=message
         )
         message_ins.save()
-
-    # if 'delete_id' in request.POST:
-    #     message_info=Message.objects.get(pk=id)
-    #     print(message_info)
-    #     message_info.delete()
-    #     return redirect('/')
-
     messages=Message.objects.all()
     dict={'messages':messages}
     return render(request,'Form/form.html',context=dict)
@@ -47,9 +40,8 @@ def delete(request,pk):
     if request.method == "POST":        
         message_info.delete()
         messages.success(request, "Object has been deleted")
-        print(messages)
-        return redirect('/')
-
+        # print(messages)
+        # return redirect('/')
     context={
         'message_info':message_info
     }

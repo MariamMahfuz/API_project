@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body_block %}
+
+{% for writer in writers %}
+<div class="task-table">
+    <div class="task-title">
+        <a href="{% url 'profile' primarykey=writer.id %}">{{ writer.writer_name }}</a>
+    </div>
+
+    <div class="actions-btn">
+        <a class="btn task-view" href="">View Profile</a>
+        <a class="btn delete" style="margin-right: 1rem;" href="{% url 'delete_profile' primarykey=writer.id %}">Delete Profile</a>
+    </div>
+</div>
+
+{{ writer.writer_name}}
+{% endfor%}
+
+{% endblock %}

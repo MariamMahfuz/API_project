@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block body_block %}
+<div>
+    {% for message in messages %}
+            <div class="alert alert-info" role="alert">
+                {{ message }}
+            </div>
+      {% endfor %}
+      
+    <form method="POST">
+      {% csrf_token %}
+  
+      <h3 style="margin-bottom: 1.3rem">Add New Writer</h3>
+  
+      {% for writer_add in Writer %}
+      <div style="margin-bottom: 1rem">
+        <label for="">{{ writer_add.label_tag }}</label>
+        {{ writer_add }}
+      </div>
+      {% endfor %}
+  
+      <button class="btn edit-task" type="submit">Submit</button>
+      
+    </form>
+    <button style="margin-top: 1rem" class="btn task-view">
+      <a style="color: #fff; text-decoration: none" href="{% url 'writer_list' %}"
+        >Back</a
+      >
+    </button>
+  </div>
+{% endblock %}
