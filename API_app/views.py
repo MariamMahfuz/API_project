@@ -28,7 +28,6 @@ def edit(request,primaryk):
         message_info.address=address
         message_info.message=message        
         message_info.save()
-        return redirect('/')
 
     context={
         'message_info':message_info
