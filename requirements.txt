@@ -1,0 +1,16 @@
+asgiref==3.5.2
+certifi==2022.5.18.1
+charset-normalizer==2.0.12
+crispy-bootstrap5==0.6
+Django==4.0.4
+django-crispy-forms==1.14.0
+djangorestframework==3.13.1
+idna==3.3
+Pillow==9.1.1
+pystache==0.6.0
+pytz==2022.1
+requests==2.27.1
+sqlparse==0.4.2
+static==1.1.1
+tzdata==2022.1
+urllib3==1.26.9

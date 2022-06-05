@@ -27,14 +27,14 @@ def Add_writer(request):
 
 
 def Writer_Profile(request,primarykey):
-    writer_details=Profile.objects.get(pk=primarykey)
+    writer_details=Booklist.objects.get(pk=primarykey)
     context={
         'writer_details':writer_details
     }
     return render(request,'Writer_Profile/Profile.html',context)
 
 def Edit_Profile(request,primarykey):
-    writer_details=Profile.objects.get(pk=primarykey)
+    writer_details=Booklist.objects.get(pk=primarykey)
     edit_form = ProfileForm(instance=writer_details)
     if request.method == 'POST':
         form = ProfileForm(request.POST, instance=writer_details)
